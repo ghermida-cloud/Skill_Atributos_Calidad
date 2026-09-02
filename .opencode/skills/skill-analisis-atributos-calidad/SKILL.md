@@ -1,3 +1,8 @@
+---
+name: skill-analisis-atributos-calidad
+description: "Analiza sistemas a nivel de arquitectura de software siguiendo Software Architecture in Practice (4th ed.) en tres modos: (1) construir Quality Attribute Scenarios a partir de un enunciado, (2) verificar y corregir escenarios ya armados, y (3) construir el árbol de utilidad. Úsala ante ejercicios sobre atributos de calidad, escenarios de calidad, verificación o corrección de escenarios, árbol de utilidad, utility tree, o análisis arquitectónico de enunciados."
+---
+
 # Skill — Análisis de Atributos de Calidad a Nivel de Arquitectura de Software
 
 ## Propósito
@@ -9,6 +14,22 @@ La cadena de trazabilidad debe ser:
 **ENUNCIADO → EVIDENCIA → ATRIBUTO → JUSTIFICACIÓN → GENERAL SCENARIO → CONCRETE SCENARIO**
 
 No clasificar por palabras aisladas ni inventar información.
+
+---
+
+## Modos de operación
+
+La skill tiene **tres modos**. Antes de responder, identificar cuál aplicar según lo que pida el usuario:
+
+| Modo | Nombre | Cuándo se usa | Secciones |
+|---|---|---|---|
+| 1 | Análisis y construcción de escenarios | El usuario entrega un enunciado y pide analizarlo: separar funcionalidad de calidad, identificar atributos y construir sus escenarios. | 1 a 31 |
+| 2 | Verificación y corrección de escenarios | El usuario entrega escenarios **ya armados** y pide verificarlos, detectar errores y corregirlos. | 33 |
+| 3 | Árbol de utilidad | El usuario pide construir, completar o priorizar el **árbol de utilidad** de un sistema. | 34 |
+
+- Los tres modos comparten las reglas de transparencia (sección 3), los estados de los atributos (sección 4), la distinción funcional/calidad (sección 5) y la fidelidad a los General Scenarios (secciones 11 a 26).
+- Si la petición mezcla modos, aplicarlos en secuencia y separar claramente la salida de cada uno, indicando en qué modo se está trabajando.
+- Si no se puede determinar el modo solicitado, preguntar al usuario antes de proceder.
 
 ---
 
@@ -85,7 +106,7 @@ Pero, cuando el contexto del sistema permita formular una posible interpretació
 
 **[INFERENCIA] Posible valor: ...**
 
-La inferencia **no reemplaza** a “No especificado”. Ambos deben aparecer cuando corresponda:
+La inferencia **no reemplaza** a "No especificado". Ambos deben aparecer cuando corresponda:
 
 - **No especificado:** lo que realmente puede afirmarse a partir del enunciado.
 - **[INFERENCIA] Posible valor:** una posible forma de completar ese campo, deducida del contexto, pero que no está explícitamente especificada.
@@ -162,7 +183,7 @@ Después identificar los atributos.
 
 Una palabra aislada no determina automáticamente el atributo.
 
-Ejemplo: “rápido” puede sugerir Performance, pero debe analizarse qué debe ser rápido y por qué. “Seguro” puede corresponder a Security o Safety según el significado del requisito.
+Ejemplo: "rápido" puede sugerir Performance, pero debe analizarse qué debe ser rápido y por qué. "Seguro" puede corresponder a Security o Safety según el significado del requisito.
 
 ---
 
@@ -192,11 +213,11 @@ Esto no autoriza a inventar contexto: la especificidad debe surgir de la evidenc
 
 Enunciado hipotético:
 
-> “El sistema debe comprobar la seguridad en menos de 2 segundos.”
+> "El sistema debe comprobar la seguridad en menos de 2 segundos."
 
-**Performance:** evidencia = “menos de 2 segundos”. Hay una restricción temporal explícita.
+**Performance:** evidencia = "menos de 2 segundos". Hay una restricción temporal explícita.
 
-**Security:** evidencia = “comprobar la seguridad”. El objetivo de la operación está relacionado con seguridad.
+**Security:** evidencia = "comprobar la seguridad". El objetivo de la operación está relacionado con seguridad.
 
 Analizar ambas dimensiones. Si el objetivo de seguridad es lo específico y el tiempo es una restricción sobre esa operación, Security puede ser la interpretación más específica, mientras Performance representa la restricción temporal. Si no puede descartarse ninguna sin inferir, mantener ambas.
 
@@ -220,7 +241,7 @@ Si ambos son defendibles, mostrar ambos.
 
 ---
 
-# 10. “Afectar” no significa “ser requisito”
+# 10. "Afectar" no significa "ser requisito"
 
 Que un atributo pueda verse afectado por una decisión no significa que el enunciado lo exija.
 
@@ -228,11 +249,11 @@ Por ejemplo, Security puede afectar Performance. Eso no convierte automáticamen
 
 Distinguir:
 
-> “Esto podría afectar Performance.”
+> "Esto podría afectar Performance."
 
 vs.
 
-> “El enunciado exige Performance.”
+> "El enunciado exige Performance."
 
 ---
 
@@ -322,19 +343,19 @@ Ejemplo:
 
 > **Stimulus Source:** Persona mayor (**end user**)
 
-“Persona mayor” es el dato específico del sistema y “end user” es la opción/valor bibliográfico que corresponde a **Stimulus Source**.
+"Persona mayor" es el dato específico del sistema y "end user" es la opción/valor bibliográfico que corresponde a **Stimulus Source**.
 
 Otro ejemplo:
 
 > **Artifact:** Módulo de autenticación (**component**)
 
-“Módulo de autenticación” es el dato específico del sistema y “component” es la opción/valor bibliográfico correspondiente a **Artifact**.
+"Módulo de autenticación" es el dato específico del sistema y "component" es la opción/valor bibliográfico correspondiente a **Artifact**.
 
 No escribir:
 
 > **Módulo de autenticación (artifact)**
 
-si “artifact” solamente identifica cuál de las seis partes se está completando. En ese caso, **Artifact** es el encabezado y dentro de los paréntesis debe aparecer la opción/valor que el libro propone para esa parte.
+si "artifact" solamente identifica cuál de las seis partes se está completando. En ese caso, **Artifact** es el encabezado y dentro de los paréntesis debe aparecer la opción/valor que el libro propone para esa parte.
 
 Esta convención se aplica consistentemente a las seis partes.
 
@@ -349,7 +370,7 @@ Para construir cada escenario:
 3. conservar el significado de sus categorías;
 4. utilizar las posibles opciones del libro como guía;
 5. particularizar únicamente con información del enunciado;
-6. si falta información, escribir “No especificado” y, cuando el contexto permita una posible interpretación útil, agregar también **[INFERENCIA] Posible valor: ...** sin reemplazar el “No especificado”;
+6. si falta información, escribir "No especificado" y, cuando el contexto permita una posible interpretación útil, agregar también **[INFERENCIA] Posible valor: ...** sin reemplazar el "No especificado";
 7. no inventar métricas ni condiciones.
 
 La personalización puede hacer el escenario más claro y contextualizado, pero nunca debe reemplazar ni deformar la estructura de la bibliografía.
@@ -562,7 +583,7 @@ Cantidad/porcentaje de estados inseguros evitados o recuperables, reducción de 
 
 **Security:** proteger datos, servicios y recursos frente a accesos o acciones no autorizadas/ataques.
 
-No asumir que “seguridad” en lenguaje natural equivale automáticamente a Security.
+No asumir que "seguridad" en lenguaje natural equivale automáticamente a Security.
 
 ---
 
@@ -671,7 +692,7 @@ Nunca presentar una inferencia como si fuera un valor explícito del enunciado.
 
 Si el enunciado dice:
 
-> “rápidamente”
+> "rápidamente"
 
 mantener:
 
@@ -683,11 +704,11 @@ y, si el contexto permite proponer una posible interpretación razonable:
 
 La inferencia debe dejar claro que el enunciado no fija una medida concreta.
 
-No convertir arbitrariamente “rápidamente” en “menos de 2 segundos”.
+No convertir arbitrariamente "rápidamente" en "menos de 2 segundos".
 
 Si el enunciado dice:
 
-> “menos de 2 segundos”
+> "menos de 2 segundos"
 
 sí utilizar:
 
@@ -715,7 +736,7 @@ Nunca presentar esa inferencia como si fuera un requisito explícito.
 
 **Estado:** CONFIRMADO
 
-**Evidencia del enunciado:** “...”
+**Evidencia del enunciado:** "..."
 
 **Correspondencia bibliográfica:** ...
 
@@ -727,7 +748,7 @@ Nunca presentar esa inferencia como si fuera un requisito explícito.
 
 **Estado:** POSIBLE
 
-**Evidencia:** “...”
+**Evidencia:** "..."
 
 **Por qué podría corresponder:** ...
 
@@ -768,13 +789,13 @@ Si ambos siguen siendo defendibles, construir ambos escenarios.
 
 | Atributo | Evidencia del enunciado | Justificación |
 |---|---|---|
-| ... | “...” | ... |
+| ... | "..." | ... |
 
 ## 3. Atributos de calidad posibles
 
 | Atributo | Evidencia | Por qué podría corresponder | Qué falta para confirmarlo |
 |---|---|---|---|
-| ... | “...” | ... | ... |
+| ... | "..." | ... | ... |
 
 ## 4. Ambigüedades
 
@@ -822,7 +843,7 @@ Analizar los fragmentos que puedan corresponder a más de un atributo.
 - [ ] Marqué inferencias como **[INFERENCIA]**.
 - [ ] Evité inferencias innecesarias.
 - [ ] Marqué datos faltantes como No especificado.
-- [ ] Cuando fue útil, agregué una posible interpretación marcada como **[INFERENCIA]**, sin reemplazar “No especificado”.
+- [ ] Cuando fue útil, agregué una posible interpretación marcada como **[INFERENCIA]**, sin reemplazar "No especificado".
 - [ ] No inventé datos.
 
 ### Escenarios
@@ -853,13 +874,13 @@ Analizar los fragmentos que puedan corresponder a más de un atributo.
 
 Esta sección agrega distinciones útiles para resolver casos grises entre atributos. **No modifica la definición ni el procedimiento de las secciones anteriores**. Su función es servir como guía comparativa cuando dos conceptos puedan confundirse.
 
-Cuando una distinción provenga del libro, indicarlo como **[BIBLIOGRAFÍA]**. Cuando corresponda específicamente a una explicación, criterio o convención de la cátedra y no a un atributo de la “A list” del libro, indicarlo como **[CÁTEDRA / CLASE]**. Si una explicación es una interpretación nuestra, marcarla como **[INFERENCIA]**.
+Cuando una distinción provenga del libro, indicarlo como **[BIBLIOGRAFÍA]**. Cuando corresponda específicamente a una explicación, criterio o convención de la cátedra y no a un atributo de la "A list" del libro, indicarlo como **[CÁTEDRA / CLASE]**. Si una explicación es una interpretación nuestra, marcarla como **[INFERENCIA]**.
 
 ---
 
 ## 32.1 Integrability vs. Modifiability
 
-**[BIBLIOGRAFÍA]** El libro trata **Integrability** y **Modifiability** como atributos distintos dentro de su “A list”, y presenta Integrability específicamente alrededor de la integración de elementos. La relación entre ambos debe entenderse como una relación de alcance: la integración es un tipo particular de cambio/preocupación arquitectónica, pero el requisito puede estar expresando específicamente integración.
+**[BIBLIOGRAFÍA]** El libro trata **Integrability** y **Modifiability** como atributos distintos dentro de su "A list", y presenta Integrability específicamente alrededor de la integración de elementos. La relación entre ambos debe entenderse como una relación de alcance: la integración es un tipo particular de cambio/preocupación arquitectónica, pero el requisito puede estar expresando específicamente integración.
 
 ### Modifiability
 
@@ -888,13 +909,13 @@ El foco está específicamente en la incorporación/integración de elementos y 
 
 Si el enunciado dice simplemente:
 
-> “el sistema debe poder modificarse fácilmente”
+> "el sistema debe poder modificarse fácilmente"
 
 → **Modifiability**.
 
 Si dice:
 
-> “debe poder integrarse un nuevo componente/sistema/elemento”
+> "debe poder integrarse un nuevo componente/sistema/elemento"
 
 → **Integrability** puede ser el atributo más específico.
 
@@ -911,7 +932,7 @@ En ese caso, mostrar ambos, justificar ambos y explicar cuál es más específic
 
 ### Estado respecto de la bibliografía
 
-**[BIBLIOGRAFÍA]** En la 4.ª edición, **Portability** e **Interoperability** no forman parte de los diez atributos de la “A list” desarrollados individualmente en los capítulos 4–13. El libro las trata dentro de su discusión de **otras listas/modelos de atributos de calidad** en el capítulo 14. En particular, al presentar ISO/IEC 25010, menciona Portability e Interoperability como características/subcaracterísticas de ese modelo. citeturn1search2turn1search5
+**[BIBLIOGRAFÍA]** En la 4.ª edición, **Portability** e **Interoperability** no forman parte de los diez atributos de la "A list" desarrollados individualmente en los capítulos 4–13. El libro las trata dentro de su discusión de **otras listas/modelos de atributos de calidad** en el capítulo 14. En particular, al presentar ISO/IEC 25010, menciona Portability e Interoperability como características/subcaracterísticas de ese modelo.
 
 Por lo tanto, si la cátedra utiliza Portability e Interoperability como atributos para analizar ejercicios, deben distinguirse de los diez atributos principales de la skill.
 
@@ -919,7 +940,7 @@ Por lo tanto, si la cátedra utiliza Portability e Interoperability como atribut
 
 ### Portability
 
-**[BIBLIOGRAFÍA]** El libro reproduce la definición de ISO/IEC 25010 según la cual Portability se refiere al grado en que un sistema, producto o componente puede ser transferido entre distintos entornos de hardware, software u otros entornos operativos/de uso. citeturn1search2
+**[BIBLIOGRAFÍA]** El libro reproduce la definición de ISO/IEC 25010 según la cual Portability se refiere al grado en que un sistema, producto o componente puede ser transferido entre distintos entornos de hardware, software u otros entornos operativos/de uso.
 
 Pregunta guía:
 
@@ -932,17 +953,17 @@ Ejemplos de pistas:
 - funcionar en diferentes entornos de operación;
 - poder mover un componente/sistema de un entorno a otro con el esfuerzo requerido.
 
-**[INFERENCIA]** Decir simplemente “que el sistema se pueda usar en otro lugar” puede ser demasiado ambiguo: hay que comprobar que el requisito realmente implique transferencia entre entornos y no simplemente otro tipo de reutilización o configuración.
+**[INFERENCIA]** Decir simplemente "que el sistema se pueda usar en otro lugar" puede ser demasiado ambiguo: hay que comprobar que el requisito realmente implique transferencia entre entornos y no simplemente otro tipo de reutilización o configuración.
 
 ### Interoperability
 
-**[BIBLIOGRAFÍA]** En ISO/IEC 25010, que el libro presenta en el capítulo 14, Interoperability aparece como una subcaracterística de **Compatibility**: se relaciona con la capacidad de sistemas/productos para intercambiar información y utilizar esa información intercambiada. citeturn1search2
+**[BIBLIOGRAFÍA]** En ISO/IEC 25010, que el libro presenta en el capítulo 14, Interoperability aparece como una subcaracterística de **Compatibility**: se relaciona con la capacidad de sistemas/productos para intercambiar información y utilizar esa información intercambiada.
 
 Pregunta guía:
 
 > **¿El sistema necesita intercambiar información o colaborar con otro sistema/producto?**
 
-Por lo tanto, **no definir Interoperability como “que el mismo sistema tenga distintos usos”**. Ese ejemplo de las distintas pólizas para dólares/pesos, por sí solo, no demuestra interoperabilidad.
+Por lo tanto, **no definir Interoperability como "que el mismo sistema tenga distintos usos"**. Ese ejemplo de las distintas pólizas para dólares/pesos, por sí solo, no demuestra interoperabilidad.
 
 **[INFERENCIA]** Si un sistema bancario puede manejar distintos tipos de pólizas porque está diseñado para admitir configuraciones o variaciones de negocio, eso podría apuntar a otra preocupación —por ejemplo Modifiability, configurabilidad u otra cualidad—, pero no alcanza por sí solo para afirmar Interoperability.
 
@@ -970,7 +991,7 @@ Ante un enunciado que hable de integración o interacción:
 - Si el enunciado solamente habla de que un sistema pueda funcionar en otro entorno, pensar en **Portability**, no en Interoperability.
 - Si la situación permite defender más de un atributo, aplicar siempre la regla general de la skill: mostrar las alternativas, justificar cada una y determinar cuál es más específica.
 
-**[INFERENCIA]** La oposición “desarrollo vs. runtime” puede servir como pista muy útil para los ejercicios de la cátedra, pero no debe utilizarse como criterio absoluto para descartar Integrability: el propio libro contempla **runtime** como uno de sus posibles entornos.
+**[INFERENCIA]** La oposición "desarrollo vs. runtime" puede servir como pista muy útil para los ejercicios de la cátedra, pero no debe utilizarse como criterio absoluto para descartar Integrability: el propio libro contempla **runtime** como uno de sus posibles entornos.
 
 ### Diferencia rápida
 
@@ -991,7 +1012,7 @@ Ante un enunciado que hable de integración o interacción:
 
 ## 32.3 Safety vs. Security
 
-**[BIBLIOGRAFÍA]** La 4.ª edición trata Safety y Security como atributos distintos y les dedica capítulos separados, con sus propios General Scenarios. citeturn0search1turn0search2
+**[BIBLIOGRAFÍA]** La 4.ª edición trata Safety y Security como atributos distintos y les dedica capítulos separados, con sus propios General Scenarios.
 
 ### Safety
 
@@ -1001,7 +1022,7 @@ Pregunta guía:
 
 El foco está en prevenir estados inseguros, recuperarse de ellos o mantener una operación segura/degradada. La skill ya debe utilizar para Safety las categorías del General Scenario del libro, como estados inseguros, operación degradada, fail-safe, backup, etc.
 
-**Importante:** no reducir Safety a “cuidar plata o activos”.
+**Importante:** no reducir Safety a "cuidar plata o activos".
 
 **[INFERENCIA / ACLARACIÓN]** Una pérdida económica puede ser consecuencia de un estado inseguro en determinados sistemas, pero la mera existencia de dinero o activos valiosos no convierte un requisito en Safety. Hay que analizar qué tipo de daño o estado inseguro se está intentando evitar.
 
@@ -1050,7 +1071,7 @@ Si habla de:
 
 → analizar **Security**.
 
-Si el lenguaje del enunciado dice simplemente “seguridad”, **no decidir por la palabra aislada**. Aplicar la regla general de contexto de esta skill.
+Si el lenguaje del enunciado dice simplemente "seguridad", **no decidir por la palabra aislada**. Aplicar la regla general de contexto de esta skill.
 
 ---
 
@@ -1069,3 +1090,138 @@ Ante un caso ambiguo:
 7. si se necesita completar información no explícita, conservar **No especificado** y agregar la posible interpretación como **[INFERENCIA]**.
 
 La comparación debe servir para **afinar la clasificación**, no para forzar el enunciado a contener un atributo que no está realmente respaldado.
+
+---
+
+# 33. Modo 2 — Verificación y corrección de escenarios
+
+## Objetivo
+
+Dado un Quality Attribute Scenario **ya construido**, verificar si es fiel a la bibliografía y al enunciado, señalar los errores y devolver el escenario **corregido y completo**.
+
+## Procedimiento
+
+1. **Identificar el atributo** al que el escenario pretende corresponder. Si el escenario no lo declara, inferirlo de su contenido y marcarlo **[INFERENCIA]**.
+2. **Recuperar el General Scenario** de ese atributo (secciones 15 a 24) y usarlo como única referencia de validación.
+3. **Verificar la presencia de las seis partes** en orden y con su nombre correcto (sección 11).
+4. **Verificar cada parte contra el General Scenario** del atributo: la fuente, el estímulo, el artifact, el environment, la response y la response measure deben ser instancias válidas de las categorías del libro (secciones 15 a 24).
+5. **Verificar la convención de paréntesis** (sección 13): entre paréntesis debe ir la **opción o valor bibliográfico** de esa parte, y **nunca** el nombre de la parte.
+6. **Verificar la transparencia** (secciones 3 y 26): toda inferencia marcada **[INFERENCIA]**, todo dato ausente como **No especificado** (con la posible interpretación si corresponde, sin reemplazar el "No especificado"), y ninguna inferencia presentada como requisito.
+7. **Emitir el veredicto** y la lista de errores encontrados.
+8. **Reescribir el escenario completo corregido** en el formato estándar de la sección 29.
+
+## Tipos de error
+
+| Código | Error | Criterio |
+|---|---|---|
+| E1 | Faltan partes | Deben aparecer las seis partes con sus nombres correctos (sección 11). |
+| E2 | Nombre de parte usado dentro del paréntesis | Entre paréntesis va la opción/valor bibliográfico (p. ej. "end user", "component"), no el nombre de la parte (sección 13). |
+| E3 | Opción bibliográfica que no corresponde al GS del atributo | La opción/valor entre paréntesis debe estar contemplada en el General Scenario del atributo (secciones 15 a 24). |
+| E4 | Invención de datos (métrica, valor, condición, fuente) | Sólo se admite información del enunciado o de la bibliografía; lo demás es inferencia y debe marcarse como tal (sección 3). |
+| E5 | Inferencia no marcada | Toda conclusión no explícita se marca **[INFERENCIA]** (sección 3). |
+| E6 | Falta "No especificado" | Si el enunciado no determina el dato, se conserva "No especificado", con la posible interpretación si corresponde (secciones 3 y 26). |
+| E7 | Deformación del General Scenario | El escenario debe ser una instancia fiel del GS particularizado al sistema, sin alterar el significado de sus categorías (secciones 12 y 14). |
+| E8 | Response Measure no comprobable o inventada | Debe ser verificable; sin valor del enunciado usar "No especificado" + posible **[INFERENCIA]** (sección 26). |
+| E9 | Ambigüedad mal resuelta | Si el fragmento respalda dos atributos y ninguno puede descartarse, deben mantenerse ambos escenarios (secciones 7 y 8). |
+| E10 | Atributo mal identificado | Comparar el foco del requisito con la definición del atributo y evaluar alternativas más específicas (secciones 7 a 9 y 32). |
+
+## Formato de salida del Modo 2
+
+### 1. Veredicto
+
+El escenario es **CORRECTO / PARCIALMENTE CORRECTO / INCORRECTO** (elegir uno y justificar en una línea).
+
+### 2. Errores encontrados
+
+| # | Parte | Código (E#) | Problema | Corrección propuesta |
+|---|---|---|---|---|
+| 1 | Stimulus | E4 | Se inventó "menos de 2 segundos". | El enunciado no fija valor → "No especificado" + **[INFERENCIA] Posible valor: ...** |
+
+### 3. Escenario corregido
+
+Escenario completo reescrito con las seis partes en formato **dato concreto (opción/valor bibliográfico)** según la sección 29, incluyendo su **Justificación**.
+
+### 4. Checklist aplicado
+
+Marcar los ítems de la sección 30 que correspondan, señalando cuáles fallaban y qué corrección los resolvió.
+
+## Reglas del Modo 2
+
+- **No corregir sobre lo corregido:** la salida final es una sola versión íntegra del escenario.
+- **No inventar para corregir:** si falta información no se rellena con supuestos; se completa con "No especificado" y, cuando sea útil, **[INFERENCIA] Posible valor: ...**.
+- **Preservar la trazabilidad:** cada corrección debe poder justificarse con el enunciado y el General Scenario.
+- **Si el escenario viene sin atributo declarado**, determinar el atributo más específico con las secciones 7 a 9, y dejar constancia de la decisión.
+
+---
+
+# 34. Modo 3 — Árbol de utilidad
+
+## Definición de la bibliografía
+
+**[BIBLIOGRAFÍA]** El **árbol de utilidad** es la técnica de la sección **19.4 (Capturing ASRs in a Utility Tree)** de *Software Architecture in Practice, 4th Edition*: un modelo descendente que el arquitecto usa para descomponer atributos de calidad abstractos en **escenarios concretos y priorizados** cuando otras fuentes de ASR (documentos, stakeholders) son insuficientes. También se usa en el capítulo 20 (**Attribute-Driven Design, ADD**) como insumo para seleccionar los drivers de cada iteración de diseño.
+
+El árbol tiene cuatro niveles:
+
+1. **Raíz:** **Utility** (la utilidad general del sistema).
+2. **Segundo nivel — atributos de calidad:** los que el arquitecto considera importantes (en el ejemplo del libro: Performance, Modifiability, Availability, Security, etc.).
+3. **Tercer nivel — refinamientos (preocupaciones):** aspectos concretos de cada atributo relevantes para el sistema (ejemplos del libro: para Performance, "latency" y "throughput"; para Modifiability, "new products" y "new platforms"; para Availability, "hardware failure").
+4. **Hojas — escenarios:** requisitos arquitectónicamente significativos expresados como escenarios de calidad concretos.
+
+**[BIBLIOGRAFÍA]** Cada hoja se evalúa con **dos criterios en escala H / M / L** (high / medium / low):
+
+- **Importancia (business value):** cuánto le importa al negocio y a los stakeholders cumplir ese escenario; H = imprescindible, L = prescindible.
+- **Dificultad / riesgo técnico (technical risk):** cuán difícil o incierto resulta lograrlo en la arquitectura; H = alto riesgo de no alcanzarlo, L = hay confianza en cómo hacerlo.
+
+Se anota como par **`(Importancia, Dificultad)`**, por ejemplo `(H, H)` = alta importancia y alta dificultad. **[BIBLIOGRAFÍA]** Los escenarios `(H, H)` son los de mayor prioridad de análisis: alto valor y alto riesgo.
+
+## Procedimiento
+
+1. **Determinar la entrada:** atributos de calidad que vienen de un enunciado, de un análisis del Modo 1, o de escenarios verificados en el Modo 2. Si se parte del enunciado, aplicar primero las secciones 1 a 8 para separar funcionalidad de calidad e identificar atributos.
+2. **Seleccionar la raíz:** "Utility".
+3. **Segundo nivel → atributos:** listar los atributos CONFIRMADOS y los POSIBLES relevantes (sección 4). No incluir atributos sin evidencia cuando se trabaje desde un enunciado.
+4. **Tercer nivel → preocupaciones:** refinar cada atributo en **1 a 3 preocupaciones concretas** con evidencia o razonablemente derivadas del contexto (aplicar la sección 3: no inventar). Extraerlas del análisis del sistema (tiempos, cargas, fallas, cambios, integración, seguridad, etc., sección 6).
+5. **Hojas → escenarios:** por cada preocupación, construir **al menos un escenario concreto** con las seis partes (secciones 11 a 14 y 25). Cada hoja es una instancia fiel del General Scenario del atributo.
+6. **Priorizar cada hoja:** asignar `(Importancia, Dificultad)` con H / M / L y justificar brevemente cada valor. La importancia se apoya en el enunciado y el contexto de negocio; la dificultad es una decisión de análisis (ver transparencia abajo).
+7. **Presentar el árbol** con su tabla de escenarios y la justificación de prioridades.
+
+## Formato de salida del Modo 3
+
+### 1. Árbol de utilidad
+
+```
+UTILITY
+├── Performance
+│   ├── Latencia de datos
+│   │   └── (H,M) Escenario: ...
+│   └── Throughput de transacciones
+│       └── (M,L) Escenario: ...
+├── Modifiability
+│   └── Nuevo producto
+│       └── (H,H) Escenario: ...
+├── Availability
+│   └── Falla de hardware
+│       └── (M,M) Escenario: ...
+└── Security
+    └── Acceso no autorizado
+        └── (H,H) Escenario: ...
+```
+
+### 2. Tabla de escenarios priorizados
+
+Para cada hoja, el escenario completo en el formato de la sección 29:
+
+| Atributo | Preocupación | Prioridad (Imp., Df.) | Escenario (seis partes) | Justificación |
+|---|---|---|---|---|
+| Performance | Latencia de datos | (H,M) | ... | ... |
+
+### 3. Justificación de prioridades
+
+Una línea por escenario explicando por qué la Importancia y la Dificultad tienen ese valor, apoyándose en el enunciado y en criterios de análisis.
+
+## Reglas de fidelidad del Modo 3
+
+- **[BIBLIOGRAFÍA]** Mantener la notación *Utility → atributo → preocupación → escenario (Importancia, Dificultad)*. La raíz y los niveles se etiquetan como en el libro.
+- Aplicar las reglas de transparencia: distinguir dato del enunciado, dato de la bibliografía e inferencia; marcar **[INFERENCIA]** y conservar "No especificado" cuando corresponda.
+- **Las prioridades no son datos del enunciado:** si se asignan por criterio de análisis y no se derivan de un requisito explícito, indicarlo (por ejemplo **[INFERENCIA]** / decisión de análisis).
+- **El árbol no reemplaza los escenarios individuales:** cada hoja debe poder desarrollarse como un escenario completo del Modo 1.
+- Como guía de revisión: todos los atributos en alcance deben tener rama; cada preocupación debe tener al menos un escenario; cada hoja debe tener sus dos prioridades y un escenario en forma completa.
