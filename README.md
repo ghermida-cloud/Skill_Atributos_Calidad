@@ -21,3 +21,5 @@ ser testeada con ejemplos conocidos.
     Los tres modos reusan transparencia, estados de atributos y fidelidad a los General Scenarios, por lo que se decide implementar los tres en una misma skill, habria que mejorar organizacion.
 
 3. Al ver que quedo un archivo skill.me demasiado grande se trabajara en organizar y repartir las tareas dentro de la skill. (por ej, separar la parte de escenarios de cada atributo a otro archivo que sea usado como referencia solo cuando sea necesario).
+
+4. Se agrego la seccion 29.1 al formato de salida (seccion 29): ademas de mostrar la respuesta en el chat, el agente debe generar automaticamente dos archivos con el analisis completo — `<nombre-del-sistema>.md` (fuente editable en markdown) y `<nombre-del-sistema>.html` (HTML autonomo con CSS embebido que renderiza las tablas legibles). Se incluyo la plantilla CSS minima, el procedimiento de generacion con la libreria `markdown` de Python y la convencion de nombres. Tambien se agrego el sub-checklist "Entrega de archivos" en la seccion 30.

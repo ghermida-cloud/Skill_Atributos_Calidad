@@ -820,6 +820,46 @@ Analizar los fragmentos que puedan corresponder a más de un atributo.
 
 ---
 
+## 29.1. Entrega de archivos generados
+
+Además de mostrar la respuesta en el chat, el agente debe generar automáticamente **dos archivos** con el análisis completo:
+
+1. **`<nombre-del-sistema>.md`** — Archivo markdown con todo el análisis (requerimientos, atributos, ambigüedades, escenarios, checklist). Este archivo sirve como fuente editable.
+
+2. **`<nombre-del-sistema>.html`** — Archivo HTML autónomo con CSS embebido que renderiza las tablas con bordes, colores alternados en filas, encabezados con fondo oscuro y tipografía legible. Se genera convirtiendo el `.md` con la librería `markdown` de Python, incluyendo la extensión `tables` y `fenced_code`, y envolviendo el resultado en un `<body>` con estilos CSS inline.
+
+### Plantilla CSS mínima para el HTML
+
+```css
+body { font-family: 'Segoe UI', sans-serif; max-width: 1100px; margin: 40px auto; padding: 0 30px; line-height: 1.6; color: #222; background: #fafafa; }
+h1 { color: #1a1a2e; border-bottom: 3px solid #16213e; padding-bottom: 10px; }
+h2 { color: #16213e; border-bottom: 2px solid #0f3460; padding-bottom: 6px; margin-top: 35px; }
+h3 { color: #0f3460; margin-top: 25px; }
+table { width: 100%; border-collapse: collapse; margin: 15px 0; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.08); font-size: 0.92em; }
+thead tr { background: #16213e; color: #fff; }
+th { padding: 10px 12px; text-align: left; font-weight: 600; border: 1px solid #16213e; }
+td { padding: 9px 12px; border: 1px solid #ccc; vertical-align: top; }
+tbody tr:nth-child(even) { background: #f0f4f8; }
+tbody tr:hover { background: #e2eaf3; }
+```
+
+### Procedimiento de generación
+
+1. Escribir el análisis completo en formato markdown y guardarlo como `<nombre-del-sistema>.md`.
+2. Leer el `.md` generado y convertirlo a HTML usando `markdown.markdown()` con `extensions=["tables", "fenced_code"]`.
+3. Envolver el HTML resultante en una plantilla completa (`<!DOCTYPE html>`, `<head>` con charset y CSS, `<body>`).
+4. Guardar como `<nombre-del-sistema>.html`.
+5. Informar al usuario la ubicación de ambos archivos.
+
+### Convención de nombres
+
+El nombre del archivo debe ser descriptivo y en minúsculas con guiones, por ejemplo:
+
+- `escenarios-atributos-calidad-monopatines.md`
+- `escenarios-atributos-calidad-monopatines.html`
+
+---
+
 # 30. Checklist final
 
 ### Sistema
@@ -863,6 +903,13 @@ Analizar los fragmentos que puedan corresponder a más de un atributo.
 - [ ] Justifiqué cada uno.
 - [ ] Comparé cuál es más específico.
 - [ ] Construí ambos escenarios si ninguno podía descartarse.
+
+### Entrega de archivos (sección 29.1)
+
+- [ ] Generé el archivo `<nombre-del-sistema>.md` con el análisis completo.
+- [ ] Generé el archivo `<nombre-del-sistema>.html` con tablas renderizadas.
+- [ ] El `.html` incluye CSS embebido y es autónomo (abre correctamente en el navegador).
+- [ ] Informé al usuario la ubicación de ambos archivos.
 
 ---
 
