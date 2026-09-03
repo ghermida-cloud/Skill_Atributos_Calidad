@@ -27,7 +27,7 @@ La skill tiene **tres modos**. Antes de responder, identificar cuál aplicar seg
 | 2 | Verificación y corrección de escenarios | El usuario entrega escenarios **ya armados** y pide verificarlos, detectar errores y corregirlos. | 33 |
 | 3 | Árbol de utilidad | El usuario pide construir, completar o priorizar el **árbol de utilidad** de un sistema. | 34 |
 
-- Los tres modos comparten las reglas de transparencia (sección 3), los estados de los atributos (sección 4), la distinción funcional/calidad (sección 5) y la fidelidad a los General Scenarios (secciones 11 a 26).
+- Los tres modos comparten las reglas de transparencia (sección 3), los estados de los atributos (sección 4), la distinción funcional/calidad (sección 5) y la fidelidad a los General Scenarios (secciones 11 a 14 y 25 a 26; los General Scenarios de los atributos, secciones 15 a 24, viven en el archivo externo `references/general-scenarios.md`).
 - Si la petición mezcla modos, aplicarlos en secuencia y separar claramente la salida de cada uno, indicando en qué modo se está trabajando.
 - Si no se puede determinar el modo solicitado, preguntar al usuario antes de proceder.
 
@@ -377,297 +377,28 @@ La personalización puede hacer el escenario más claro y contextualizado, pero 
 
 ---
 
-# 15. General Scenario — Availability
+# 15 a 24. General Scenarios de los atributos (archivo externo)
 
-### Stimulus Source
+Los **General Scenarios** de los diez atributos de calidad (Availability, Deployability, Energy Efficiency, Integrability, Modifiability, Performance, Safety, Security, Testability, Usability) —con sus seis partes y las opciones/valores bibliográficos de cada una— se encuentran en el archivo de referencia:
 
-Fuentes como personas, hardware, software, infraestructura física u otras fuentes internas/externas de faults.
+**`references/general-scenarios.md`**
 
-### Stimulus
+**IMPORTANTE:** este archivo se encuentra junto a la skill y **no se inyecta automáticamente**. Para resolver cualquier ejercicio (Modos 1, 2 o 3) debes **leer `references/general-scenarios.md`** y usarlo como **única referencia de validación** de los General Scenarios.
 
-Un fault, incluyendo omission, crash, incorrect timing o incorrect response.
+Cada sección del archivo reproduce el General Scenario de un atributo con sus seis partes:
 
-### Artifact
+- Availability → sección 15
+- Deployability → sección 16
+- Energy Efficiency → sección 17
+- Integrability → sección 18
+- Modifiability → sección 19
+- Performance → sección 20
+- Safety → sección 21
+- Security → sección 22
+- Testability → sección 23
+- Usability → sección 24
 
-La parte del sistema afectada por el fault, por ejemplo procesadores, canales de comunicación, almacenamiento o procesos.
-
-### Environment
-
-Estados como normal operation, startup, shutdown, repair mode, degraded operation u overloaded operation.
-
-### Response
-
-Detectar, prevenir o recuperarse del fault; informar; registrar; reparar/enmascarar; continuar en modo degradado o realizar otra respuesta apropiada para mantener el servicio conforme a su especificación.
-
-### Response Measure
-
-Medidas de disponibilidad, tiempo/intervalo de disponibilidad, tiempo de detección o recuperación, o porcentaje de disponibilidad cuando corresponda.
-
----
-
-# 16. General Scenario — Deployability
-
-### Stimulus Source
-
-Por ejemplo: developer, system administrator, operations personnel, product owner o fuente de un nuevo elemento/componente.
-
-### Stimulus
-
-Disponibilidad o solicitud de deployment de un nuevo elemento, versión, corrección, security patch, upgrade o rollback.
-
-### Artifact
-
-Componentes, módulos, plataforma, entorno, sistema o elementos que deban desplegarse.
-
-### Environment
-
-Por ejemplo staging o production, o un subconjunto controlado de estos.
-
-### Response
-
-Incorporar, desplegar, monitorear o hacer rollback del elemento.
-
-### Response Measure
-
-Tiempo, esfuerzo, costo, defectos introducidos, efectos sobre otros atributos y/o deployments fallidos, según lo que exija el escenario.
-
----
-
-# 17. General Scenario — Energy Efficiency
-
-Este atributo trata el uso eficiente de recursos computacionales para controlar el consumo de energía manteniendo la funcionalidad y las restricciones relevantes.
-
-### Stimulus Source
-
-Actor o agente que inicia la necesidad de gestionar/conservar energía.
-
-### Stimulus
-
-Solicitud o necesidad de modificar la utilización de recursos para conservar energía.
-
-### Artifact
-
-Recursos computacionales/dispositivos relevantes para el consumo.
-
-### Environment
-
-Runtime y condiciones relevantes, como dispositivos alimentados por batería o modos de conservación.
-
-### Response
-
-Monitorear consumo, asignar/liberar recursos, adaptar el uso de recursos o reducir consumo manteniendo el nivel requerido de funcionalidad.
-
-### Response Measure
-
-Consumo/energía utilizada, energía ahorrada, tiempo de funcionamiento u otra medida explícita del escenario.
-
-No inventar un valor numérico.
-
----
-
-# 18. General Scenario — Integrability
-
-### Stimulus Source
-
-Por ejemplo stakeholder, component marketplace, component vendor u otra fuente del elemento que se integrará.
-
-### Stimulus
-
-Agregar un componente, integrar una nueva versión o integrar componentes existentes de una nueva manera.
-
-### Artifact
-
-Sistema completo, conjunto de componentes, componente, configuración o elementos afectados.
-
-### Environment
-
-Development, integration, deployment o runtime, según corresponda.
-
-### Response
-
-Integrar, probar, desplegar y lograr la colaboración/intercambio correcto entre los elementos.
-
-### Response Measure
-
-Costo, esfuerzo o tiempo de integración y, cuando corresponda, número de componentes afectados, cantidad de cambios o efectos sobre otros atributos.
-
----
-
-# 19. General Scenario — Modifiability
-
-### Stimulus Source
-
-Por ejemplo developer, end user, system administrator, product line owner u otro actor que solicita el cambio.
-
-### Stimulus
-
-Agregar, eliminar o modificar funcionalidad; cambiar un atributo de calidad; cambiar capacidad, plataforma, tecnología o ubicación de un servicio; agregar un producto; corregir un defecto, etc.
-
-### Artifact
-
-El artifact que debe modificarse: datos, interfaces, componentes, recursos, configuraciones, documentación, tests u otras partes del sistema.
-
-### Environment
-
-Design time, build time, compile time, initiation time o runtime, según corresponda.
-
-### Response
-
-Realizar, probar y desplegar/adaptar la modificación.
-
-### Response Measure
-
-Costo del cambio: cantidad/tamaño/complejidad de artifacts afectados, esfuerzo, tiempo, dinero, efectos sobre funciones/qualities, defectos introducidos, etc.
-
----
-
-# 20. General Scenario — Performance
-
-### Stimulus Source
-
-Puede ser un usuario, múltiples usuarios, un sistema externo, un sensor u otra parte del sistema; también un timer para estímulos internos.
-
-### Stimulus
-
-Llegada de un evento: periódico, esporádico o estocástico. Puede ser una solicitud o una notificación.
-
-### Artifact
-
-Todo el sistema o una parte/componente del sistema.
-
-### Environment
-
-Normal mode, emergency mode, error correction mode, peak load, overload, degraded operation u otro modo pertinente.
-
-### Response
-
-Procesar el evento y responder; devolver un error; no responder; ignorar solicitudes bajo overload; cambiar modo/nivel de servicio; atender eventos de mayor prioridad, etc., según el escenario.
-
-### Response Measure
-
-Latency, deadline, throughput, jitter, miss rate, porcentaje/número de solicitudes satisfechas/no satisfechas o utilización de recursos, según corresponda.
-
-Si el enunciado proporciona una medida concreta, conservarla. Si no, no inventar un valor.
-
----
-
-# 21. General Scenario — Safety
-
-### Stimulus Source
-
-Por ejemplo sensor, software component, communication channel, dispositivo/fuente temporal o acción del usuario.
-
-### Stimulus
-
-Omission, commission, incorrect data o incorrect timing que pueda conducir a un estado inseguro.
-
-### Artifact
-
-Partes safety-critical del sistema.
-
-### Environment
-
-Normal operation, degraded operation o manual operation.
-
-### Response
-
-Prevenir un unsafe state, recuperarse, continuar de forma segura/degradada, realizar shutdown/fail safe, pasar a operación manual, cambiar a backup y/o reportar/loguear el estado inseguro.
-
-### Response Measure
-
-Cantidad/porcentaje de estados inseguros evitados o recuperables, reducción de exposición al riesgo, tiempo de transición a/desde modos seguros/degradados, tiempo apagado, etc.
-
-### Distinción Safety vs Security
-
-**Safety:** evitar daño o estados inseguros derivados del comportamiento/fallas del sistema.
-
-**Security:** proteger datos, servicios y recursos frente a accesos o acciones no autorizadas/ataques.
-
-No asumir que "seguridad" en lenguaje natural equivale automáticamente a Security.
-
----
-
-# 22. General Scenario — Security
-
-### Stimulus Source
-
-Human o another system; puede estar dentro/fuera de la organización y ser conocido o desconocido.
-
-### Stimulus
-
-Ataque o intento no autorizado de visualizar, capturar, cambiar/eliminar datos, acceder a servicios, modificar comportamiento o reducir disponibilidad.
-
-### Artifact
-
-Servicios, datos, componentes, recursos o datos producidos/consumidos por el sistema.
-
-### Environment
-
-Online/offline, conectado/desconectado de la red, detrás de firewall/abierto a red, fully operational, partially operational o not operational, según corresponda.
-
-### Response
-
-Detectar, resistir y responder al ataque; proteger confidentiality, integrity y availability; identificar actores; registrar accesos/modificaciones/intentos; notificar; recuperar.
-
-### Response Measure
-
-Recursos comprometidos/asegurados, precisión de detección, tiempo hasta detectar, ataques resistidos, tiempo de recuperación o datos vulnerables, según el escenario.
-
----
-
-# 23. General Scenario — Testability
-
-### Stimulus Source
-
-Unit testers, integration testers, system testers, acceptance testers, end users o herramientas de testing automatizadas.
-
-### Stimulus
-
-Inicio de un test o conjunto de tests para validar funciones/qualities o descubrir amenazas a la calidad.
-
-### Artifact
-
-La parte del sistema y la infraestructura necesaria para probarla: unidad, componente, subsistema, sistema completo o infraestructura de testing.
-
-### Environment
-
-Contexto de desarrollo/testing, por ejemplo después de completar un incremento, integrar un subsistema, completar la implementación, desplegar o entregar al cliente.
-
-### Response
-
-Ejecutar tests, capturar resultados, observar/controlar el estado y detectar/revelar faults.
-
-### Response Measure
-
-Esfuerzo para descubrir faults, cobertura, probabilidad de revelar un fault, tiempo de ejecución, tiempo/esfuerzo de preparación de infraestructura o reducción de risk exposure.
-
----
-
-# 24. General Scenario — Usability
-
-### Stimulus Source
-
-Principalmente end user o end user en un rol especializado, como administrator.
-
-### Stimulus
-
-El usuario quiere usar el sistema eficientemente, aprender a utilizarlo, minimizar el impacto de errores, adaptar el sistema o configurarlo.
-
-### Artifact
-
-Por ejemplo GUI, command-line interface, voice interface, touch screen u otra interfaz pertinente.
-
-### Environment
-
-At runtime o at system configuration time, según corresponda.
-
-### Response
-
-Proporcionar las funcionalidades necesarias, anticipar necesidades, proporcionar feedback apropiado o permitir la interacción requerida.
-
-### Response Measure
-
-Task time, number of errors, learning time, relación learning time/task time, number of tasks accomplished, user satisfaction u otra medida respaldada por el escenario.
+A lo largo de esta skill, toda mención a "secciones 15 a 24" o "el General Scenario del atributo" remite a dicho archivo.
 
 ---
 
@@ -675,7 +406,7 @@ Task time, number of errors, learning time, relación learning time/task time, n
 
 Para cada atributo:
 
-1. localizar su General Scenario en el libro;
+1. localizar su General Scenario (secciones 15 a 24 del archivo `references/general-scenarios.md`);
 2. mantener las seis partes;
 3. extraer del enunciado los datos explícitos;
 4. personalizar cada parte con la convención **dato concreto (opción/valor bibliográfico correspondiente)**;
@@ -725,6 +456,26 @@ y, cuando el contexto permita una interpretación razonable:
 > **[INFERENCIA] Posible valor: ...**
 
 Nunca presentar esa inferencia como si fuera un requisito explícito.
+
+---
+
+## 26.1 Dato explícito, reformulación válida y métrica inventada
+
+**No toda paráfrasis de un requisito es una inferencia problemática ni una métrica inventada.** Ante el fragmento de un enunciado, distinguir tres niveles:
+
+- **Dato explícito del enunciado:** lo que el texto declara literalmente, sin agregados.
+  - Ejemplo: "desplegarse **sin afectar** a los estudiantes".
+- **Reformulación válida:** una paráfrasis que conserva el sentido del dato explícito sin introducir un valor ni condiciones que el enunciado no declara. Puede usarse como Response o como descripción de la medida sin marcarla como invención, aclarando que es una reformulación del requisito.
+  - Ejemplo: "sin interrupción de los pagos en curso" reformula "sin afectar a los estudiantes que están realizando pagos".
+  - La reformulación no equivale a fijar un umbral: no convierte "sin afectar" en "cero interrupciones" entendido como 0 segundos.
+- **Métrica cuantitativa inventada:** un valor, porcentaje o umbral numérico que el enunciado no declara. Debe eliminarse o marcarse **[INFERENCIA]** y, salvo que el contexto aporte base, evitarse.
+  - Ejemplo: "0 segundos de interrupción", "100% de deployments sin interrupción", "100% de los accesos rechazados".
+
+### Criterio
+
+- Si el enunciado da un valor concreto → usarlo como dato explícito.
+- Si el enunciado da una condición observable pero no numérica (p. ej. "sin afectar a los estudiantes") → usar esa condición como Response y, en la medida, describirla sin inventar un número ("No especificado" + posibles **[INFERENCIA]** si son útiles). Una reformulación textual es aceptable; un valor numérico inventado no lo es.
+- Si el enunciado usa un término vago ("rápidamente", "seguro", "disponible") → "No especificado" + **[INFERENCIA]** sin reemplazarlo por un número.
 
 ---
 
@@ -896,13 +647,16 @@ El nombre del archivo debe ser descriptivo y en minúsculas con guiones, por eje
 - [ ] Entre paréntesis puse la opción/valor bibliográfico correspondiente a la parte, no el nombre de la parte.
 - [ ] Response Measure verificable.
 - [ ] No inventé métricas.
+- [ ] Response Measure tiene trazabilidad directa con el enunciado: no se sustituyeron términos vagos (p. ej. "rápidamente") por valores concretos inventados (p. ej. "menos de 2 segundos"), y se distinguió dato explícito, reformulación válida y métrica cuantitativa inventada (sección 26.1).
 
 ### Ambigüedad
 
+- [ ] Verifiqué explícitamente si el enunciado respalda más de un atributo (no lo di por resuelto).
 - [ ] Mostré ambos atributos cuando ambos son defendibles.
 - [ ] Justifiqué cada uno.
 - [ ] Comparé cuál es más específico.
 - [ ] Construí ambos escenarios si ninguno podía descartarse.
+- [ ] En Modo 2, registré el análisis de ambigüedad en la sección 1.1 y señalé E9 si correspondía (una ambigüedad ignorada es error aunque las seis partes estén bien).
 
 ### Entrega de archivos (sección 29.1)
 
@@ -911,11 +665,28 @@ El nombre del archivo debe ser descriptivo y en minúsculas con guiones, por eje
 - [ ] El `.html` incluye CSS embebido y es autónomo (abre correctamente en el navegador).
 - [ ] Informé al usuario la ubicación de ambos archivos.
 
+### Modo 3 — Árbol de utilidad
+
+- [ ] Cada atributo se verificó contra su General Scenario (paso 4 del procedimiento de la sección 34).
+- [ ] Cada parte del escenario tiene trazabilidad directa con el enunciado o con categorías del GS (sección 34.2).
+- [ ] No inventé artifacts, environments, sources ni responses que el enunciado no describe.
+- [ ] No sobre-adapté el Artifact: en Availability no cambié "sistema/parte del sistema" al pago solo porque el estímulo lo afecta; el pago describe la Response, no el Artifact (sección 34.2, regla 3).
+- [ ] No agregué contextos hipotéticos (peak load, temporadas, etc.) que el enunciado no menciona.
+- [ ] No inventé detalles técnicos (tecnologías, patrones, mecanismos) para justificar prioridades.
+- [ ] No usé vocabulario del General Scenario (fault, attack, overloaded operation, production, etc.) como contenido concreto del escenario. Lo que el enunciado no describe se marca "No especificado" (sección 34.2, regla 7).
+- [ ] La dificultad de cada hoja es **No especificado** salvo que el enunciado proporcione evidencia explícita de complejidad técnica. No asigné H/M/L basándome en conocimiento general sobre atributos (sección 34.3).
+- [ ] La importancia de cada hoja se apoya en evidencia **explícita de criticidad o impacto** del enunciado; **no** asigné H por el solo hecho de que el requisito use "debe". Cuando el enunciado no permite determinarla, escribí **No especificado** (sección 34.3).
+- [ ] La justificación de prioridades tiene exactamente dos líneas: una para importancia, una para dificultad.
+- [ ] Cada preocupación tiene evidencia del enunciado; no forcé subdivisiones innecesarias.
+- [ ] "No especificado" aparece cuando el enunciado no proporciona un dato, sin ser reemplazado por inferencias.
+
 ---
 
 # 31. Regla de oro
 
 > **No inventar. No sobreinterpretar. No clasificar por palabras aisladas. Analizar en contexto. Mostrar las alternativas razonables. Priorizar el atributo más específico cuando la evidencia lo permita. Mantener las alternativas cuando continúen siendo defendibles. Seguir la estructura del General Scenario de la bibliografía. Marcar toda inferencia. Y conservar siempre la trazabilidad entre el enunciado, la bibliografía y el escenario.**
+
+> **La bibliografía aporta la estructura del General Scenario (las seis partes y sus opciones), pero NO puede aportar valores concretos del escenario que el enunciado no proporciona. Lo que el enunciado no dice, se marca "No especificado". Lo que se infiere, se marca [INFERENCIA]. Lo que se inventa, se elimina.**
 
 # 32. Distinciones y comparaciones entre atributos de calidad
 
@@ -1149,13 +920,14 @@ Dado un Quality Attribute Scenario **ya construido**, verificar si es fiel a la 
 ## Procedimiento
 
 1. **Identificar el atributo** al que el escenario pretende corresponder. Si el escenario no lo declara, inferirlo de su contenido y marcarlo **[INFERENCIA]**.
-2. **Recuperar el General Scenario** de ese atributo (secciones 15 a 24) y usarlo como única referencia de validación.
+2. **Recuperar el General Scenario** de ese atributo (secciones 15 a 24 del archivo `references/general-scenarios.md`) y usarlo como única referencia de validación.
 3. **Verificar la presencia de las seis partes** en orden y con su nombre correcto (sección 11).
-4. **Verificar cada parte contra el General Scenario** del atributo: la fuente, el estímulo, el artifact, el environment, la response y la response measure deben ser instancias válidas de las categorías del libro (secciones 15 a 24).
+4. **Verificar cada parte contra el General Scenario** del atributo: la fuente, el estímulo, el artifact, el environment, la response y la response measure deben ser instancias válidas de las categorías del libro (secciones 15 a 24 de `references/general-scenarios.md`).
 5. **Verificar la convención de paréntesis** (sección 13): entre paréntesis debe ir la **opción o valor bibliográfico** de esa parte, y **nunca** el nombre de la parte.
 6. **Verificar la transparencia** (secciones 3 y 26): toda inferencia marcada **[INFERENCIA]**, todo dato ausente como **No especificado** (con la posible interpretación si corresponde, sin reemplazar el "No especificado"), y ninguna inferencia presentada como requisito.
-7. **Emitir el veredicto** y la lista de errores encontrados.
-8. **Reescribir el escenario completo corregido** en el formato estándar de la sección 29.
+7. **Verificar la ambigüedad de atributos** (secciones 7, 8 y 32): reanalizar el enunciado para detectar si el fragmento que dio origen al escenario respalda **más de un atributo** de calidad. Si existe una alternativa defendible, comprobar que el escenario la trate correctamente (p. ej. que el atributo elegido sea el más específico, que se justifique la decisión, y que si la alternativa sigue siendo válida se ofrezca —o se justifique por qué no— un escenario para ella). No dar la ambigüedad por resuelta ni ignorarla; si el escenario no la trata, es un error E9.
+8. **Emitir el veredicto** y la lista de errores encontrados.
+9. **Reescribir el escenario completo corregido** en el formato estándar de la sección 29.
 
 ## Tipos de error
 
@@ -1163,13 +935,13 @@ Dado un Quality Attribute Scenario **ya construido**, verificar si es fiel a la 
 |---|---|---|
 | E1 | Faltan partes | Deben aparecer las seis partes con sus nombres correctos (sección 11). |
 | E2 | Nombre de parte usado dentro del paréntesis | Entre paréntesis va la opción/valor bibliográfico (p. ej. "end user", "component"), no el nombre de la parte (sección 13). |
-| E3 | Opción bibliográfica que no corresponde al GS del atributo | La opción/valor entre paréntesis debe estar contemplada en el General Scenario del atributo (secciones 15 a 24). |
+| E3 | Opción bibliográfica que no corresponde al GS del atributo | La opción/valor entre paréntesis debe estar contemplada en el General Scenario del atributo (secciones 15 a 24 de `references/general-scenarios.md`). |
 | E4 | Invención de datos (métrica, valor, condición, fuente) | Sólo se admite información del enunciado o de la bibliografía; lo demás es inferencia y debe marcarse como tal (sección 3). |
 | E5 | Inferencia no marcada | Toda conclusión no explícita se marca **[INFERENCIA]** (sección 3). |
 | E6 | Falta "No especificado" | Si el enunciado no determina el dato, se conserva "No especificado", con la posible interpretación si corresponde (secciones 3 y 26). |
 | E7 | Deformación del General Scenario | El escenario debe ser una instancia fiel del GS particularizado al sistema, sin alterar el significado de sus categorías (secciones 12 y 14). |
-| E8 | Response Measure no comprobable o inventada | Debe ser verificable; sin valor del enunciado usar "No especificado" + posible **[INFERENCIA]** (sección 26). |
-| E9 | Ambigüedad mal resuelta | Si el fragmento respalda dos atributos y ninguno puede descartarse, deben mantenerse ambos escenarios (secciones 7 y 8). |
+| E8 | Response Measure no comprobable, inventada o sin trazabilidad con el enunciado | Debe ser verificable y derivarse del enunciado. Si el enunciado usa un término vago (p. ej. "rápidamente", "débilmente", "con alta disponibilidad"), **no sustituirlo por un valor numérico concreto** sin marca de inferencia. Sin valor del enunciado usar "No especificado" + posible **[INFERENCIA]** (secciones 26, 26.1 y 3). **No es E8** cuando se reformula con fidelidad un requisito observable (ver sección 26.1): reformular "sin afectar a los estudiantes" como "desplegar sin interrumpir los pagos en curso" es válido; inventar "0 segundos de interrupción" o "100% de deployments sin interrupción" es E8. |
+| E9 | Ambigüedad no detectada o mal resuelta | Debe comprobarse si el fragmento del enunciado respalda más de un atributo. Si una alternativa es defendible (secciones 7 y 8), el escenario debe: elegir el atributo más específico y justificarlo, conservar la alternativa si sigue siendo válida (construyendo su escenario o explicando su descarte), y no presentar la ambigüedad como inexistente. El silencio sobre una ambigüedad relevante es también E9 (secciones 7, 8, 32 y procedimiento paso 7 del Modo 2). |
 | E10 | Atributo mal identificado | Comparar el foco del requisito con la definición del atributo y evaluar alternativas más específicas (secciones 7 a 9 y 32). |
 
 ## Formato de salida del Modo 2
@@ -1177,6 +949,20 @@ Dado un Quality Attribute Scenario **ya construido**, verificar si es fiel a la 
 ### 1. Veredicto
 
 El escenario es **CORRECTO / PARCIALMENTE CORRECTO / INCORRECTO** (elegir uno y justificar en una línea).
+
+### 1.1. Análisis de ambigüedad
+
+Conducta obligatoria: comprobar si el enunciado respalda más de un atributo y evaluar cómo lo maneja el escenario.
+
+| Aspecto | Atributo del escenario | Atributo(s) alternativo(s) |
+|---|---|---|
+| Evidencia del enunciado | ... | ... |
+| Correspondencia bibliográfica | ... | ... |
+| Especificidad contextual | ... | ... |
+| ¿Maneja el escenario la ambigüedad? | Sí / No / Parcial | ... |
+| Estado / conclusión | ... | ... |
+
+Si existe una alternativa defendible que el escenario no contempló ni descartó con justificación, marcar **E9** en la tabla de errores y resolverla en el escenario corregido (mantener ambos escenarios si ambos son válidos, o justificar el descarte). Si no hay ambigüedad relevante, indicarlo explícitamente en una línea.
 
 ### 2. Errores encontrados
 
@@ -1197,7 +983,8 @@ Marcar los ítems de la sección 30 que correspondan, señalando cuáles fallaba
 - **No corregir sobre lo corregido:** la salida final es una sola versión íntegra del escenario.
 - **No inventar para corregir:** si falta información no se rellena con supuestos; se completa con "No especificado" y, cuando sea útil, **[INFERENCIA] Posible valor: ...**.
 - **Preservar la trazabilidad:** cada corrección debe poder justificarse con el enunciado y el General Scenario.
-- **Si el escenario viene sin atributo declarado**, determinar el atributo más específico con las secciones 7 a 9, y dejar constancia de la decisión.
+- **Verificar siempre la ambigüedad:** antes de dar el escenario por correcto, reanalizar el enunciado (secciones 7, 8 y 32) y registrar el resultado en la sección 1.1 del formato de salida. Una ambigüedad ignorada es un error E9, aunque todas las seis partes del escenario estén bien construidas.
+- **Si el escenario viene sin atributo declarado**, determinar el atributo más específico con las secciones 7 a 9, dejar constancia de la decisión y verificar también las alternativas de atributo como parte del análisis de ambigüedad.
 
 ---
 
@@ -1221,15 +1008,116 @@ El árbol tiene cuatro niveles:
 
 Se anota como par **`(Importancia, Dificultad)`**, por ejemplo `(H, H)` = alta importancia y alta dificultad. **[BIBLIOGRAFÍA]** Los escenarios `(H, H)` son los de mayor prioridad de análisis: alto valor y alto riesgo.
 
+## 34.1. Regla crítica: qué puede y qué no puede aportar la bibliografía
+
+**[BIBLIOGRAFÍA]** La bibliografía aporta:
+
+- **Categorías estructurales** del General Scenario (las seis partes y sus opciones/valores posibles).
+- **Definiciones** de los atributos de calidad.
+- **Escalas y criterios** de evaluación (por ejemplo la escala H / M / L y los criterios de importancia y dificultad).
+
+**La bibliografía NO puede aportar:**
+
+- Valores concretos del escenario que el enunciado no proporciona.
+- Contextos o condiciones que el enunciado no describe.
+- Detalles de implementación, tecnología o infraestructura.
+- Métricas o umbrales que el enunciado no fija.
+
+**Ejemplo de error común:**
+
+> El enunciado dice "búsqueda en menos de 2 segundos". El General Scenario de Performance incluye "peak load" como opción de Environment. **Esto NO autoriza a agregar "peak load en temporadas altas" al escenario**, porque el enunciado no menciona condiciones de carga alta ni temporadas. El Environment correcto es el que el enunciado describe (o "No especificado" si no describe ninguno).
+
+La cadena de trazabilidad para cada dato del escenario debe ser:
+
+**DATO DEL ESCENARIO → ENUNCIADO (o categorías del GS) → JUSTIFICACIÓN**
+
+Si un dato no tiene trazabilidad con el enunciado, es invención y debe eliminarse o marcarse como **[INFERENCIA]** con la marca apropiada.
+
+## 34.2. Regla para las partes del escenario en Modo 3
+
+Las seis partes del escenario (secciones 11 a 14) se construyen en Modo 3 **con las mismas reglas que en Modo 1** (sección 25). Esto significa:
+
+1. **Stimulus Source:** usar solamente fuentes presentes en el enunciado. Si el enunciado no especifica la fuente, escribir "No especificado" y, si el contexto lo permite, agregar una interpretación razonable como **[INFERENCIA]**. No inventar fuentes basándose en conocimiento general sobre el tipo de sistema.
+
+2. **Stimulus:** usar solamente el evento o solicitud descrito en el enunciado. No agregar escenarios hipotéticos (por ejemplo "peak load", "múltiples usuarios simultáneos", "ataque DDoS") a menos que el enunciado los mencione.
+
+3. **Artifact:** usar solamente el elemento del sistema mencionado o directamente implicado por el enunciado. No inferir artifacts específicos (por ejemplo "documentación", "diagramas", "base de datos") a partir de suposiciones sobre cómo se implementaría el sistema. Si el enunciado dice "comprender la arquitectura", el artifact es el sistema o sus componentes arquitectónicos — no la documentación. **No sobre-adaptar el Artifact a partir de lo que el estímulo afecta concretamente**, especialmente en Availability: si el enunciado habla de "el pago no debe perderse", eso describe la *Response* ("recuperar/preservar el pago"), no necesariamente el *Artifact*. El artifact de Availability suele ser **el sistema o la parte del sistema afectada por el fault** (p. ej. procesadores, almacenamiento, procesos); se personaliza cuando el enunciado **nombra explícitamente** un componente afectado. Si el enunciado no nombra un componente específico, usar el artifact más general coherente con el GS.
+
+4. **Environment:** usar solamente el estado o condición descrito en el enunciado. Si el enunciado no describe condiciones de operación específicas, escribir "No especificado" o, si el contexto lo justifica, usar la opción más genérica del GS que sea coherente con el requisito. No agregar condiciones de carga, modos degradados u otros escenarios que el enunciado no plantea.
+
+5. **Response:** la respuesta debe corresponder directamente a lo que el enunciado exige. No agregar pasos adicionales de implementación (por ejemplo "cifrar en reposo", "registrar accesos", "hacer rollback") que el enunciado no solicita.
+
+6. **Response Measure:** aplicar estrictamente la sección 26 y la sección 26.1. Si el enunciado da un valor concreto, usarlo. Si dice "rápidamente", "seguro", "disponible" u otro término vago, escribir "No especificado" y, si es útil, agregar **[INFERENCIA] Posible valor: ...** sin reemplazar "No especificado". Si el enunciado da una condición observable pero no numérica (p. ej. "sin afectar a los estudiantes"), esa condición puede reformularse como Response (no como Response Measure inventada); ver sección 26.1.
+
+7. **Distinción entre contenido del enunciado y vocabulario del GS:** En cada una de las seis partes, lo que se escribe como contenido concreto del escenario debe provenir **exclusivamente del enunciado**. Las categorías del General Scenario (por ejemplo "fault", "attack", "overloaded operation", "production") son **referencias bibliográficas** que van entre paréntesis y **no deben tratarse como hechos del sistema**. Si el enunciado no describe un fault, no escribir "un fault" como contenido; si no describe producción, no escribir "Producción". El contenido del enunciado y la categoría del GS deben mantenerse siempre separados.
+
+## 34.3. Regla para las prioridades (Importancia, Dificultad)
+
+**[BIBLIOGRAFÍA]** La escala H / M / L y los criterios de importancia y dificultad provienen del libro (sección 19.4). El arquitecto asigna estos valores como parte del análisis.
+
+**Procedimiento para la Importancia:**
+
+- **La prioridad NO se deriva de la obligatoriedad del requisito.** Que un requisito diga "debe" no implica automáticamente prioridad High: "debe" indica que es un requisito, no su importancia relativa. Ejemplo: "El sistema debe permitir cambiar el logo" es obligatorio pero no necesariamente de prioridad H.
+- **Base principal:** el enunciado. La importancia debe derivarse de **indicaciones explícitas de criticidad, impacto o valor para el negocio/stakeholders** presentes en el enunciado o contexto (por ejemplo "es crítico", "es un riesgo muy alto", "afecta directamente al negocio", "es el propósito central del sistema"). Si el enunciado califica el requisito como menor o de baja prioridad, aplicar ese valor.
+- **Si el enunciado destaca un contexto relevante** (p. ej. "gran cantidad de usuarios concurrentes durante la inscripción"), ese contexto puede sustentar la importancia **solo si se lo vincula explícitamente** al atributo; no por sí mismo.
+- **Si el enunciado no permite determinar la importancia:** escribir **No especificado** y explicar brevemente qué información faltaría para determinarla (criterio de importancia que otorguen los stakeholders, clasificación del mantenimiento de negocio, etc.). No asignar un valor H/M/L por el solo hecho de que el requisito sea obligatorio, ni infiriéndolo del conocimiento general sobre el atributo o el dominio.
+- **No inventar stakeholders, prioridades de negocio ni impactos financieros** que el enunciado no describe.
+
+**Procedimiento para la Dificultad:**
+
+- **No hay datos de dificultad en el enunciado.** El enunciado normalmente describe requisitos de calidad, no complejidades técnicas específicas de su logro.
+- **La dificultad es siempre "No especificado" salvo que el enunciado proporcione evidencia explícita de complejidad técnica.** No asignar H/M/L a partir del conocimiento general sobre un atributo.
+- Cuando el enunciado sí describe una complejidad técnica explícita y el arquitecto estima un nivel, entonces y solo entonces se puede marcar el valor como **"[INFERENCIA] / Decisión de análisis Y"** con justificación trazable al enunciado.
+- **Prohibido justificar la dificultad con detalles técnicos inventados.** No agregar afirmaciones como "requiere redundancia", "necesita cifrado", "implica failover", "usa contenedores" ni otros detalles de implementación que el enunciado no menciona.
+- **Prohibido inferir la dificultad a partir de la naturaleza general del atributo.** Afirmaciones como "proteger pagos es exigente" o "alta disponibilidad es complejo" son inferencias basadas en conocimiento general, no en evidencia del enunciado, y por sí solas no autorizan a asignar H/M/L.
+- **Si el enunciado no proporciona evidencia suficiente para determinar la dificultad, la respuesta correcta es "No especificado".** No asignar un valor H/M/L basándose en el conocimiento general sobre las características de un atributo de calidad.
+- **Una inferencia sobre la dificultad arquitectónica basada en el conocimiento general de un atributo NO es suficiente para asignar H/M/L.** Por ejemplo, decir "proteger pagos es exigente" o "alta disponibilidad es complejo" son inferencias razonables como explicación, pero de ellas no se desprende un valor H/M/L determinado. Si el enunciado no describe explícitamente una dificultad técnica concreta, mantener **No especificado**.
+
+**Formato obligatorio en la justificación de prioridades:**
+
+Para cada escenario, la justificación debe contener **dos líneas separadas**:
+
+1. **Importancia (X):** justificación basada en el enunciado. Si el enunciado no permite determinar la importancia, escribir **No especificado** y explicar brevemente qué información faltaría.
+2. **Dificultad (Y):** siempre **No especificado**, salvo que el enunciado proporcione evidencia explícita de la complejidad técnica. Cuando se asigne un valor H/M/L, marcarlo como **[INFERENCIA] / Decisión de análisis** y justificar con trazabilidad al enunciado.
+
+Ejemplo correcto (importancia determinada, dificultad no determinada):
+
+> **Importancia H:** El enunciado afirma explícitamente que "la seguridad de los pagos es crítica para el negocio", lo que es una indicación explícita de criticidad. (La palabra "debe" por sí sola NO justificaría H).
+>
+> **Dificultad No especificado:** El enunciado no proporciona evidencia sobre la complejidad técnica de proteger las transacciones. Faltaría información sobre los vectores de ataque, las normativas aplicables o las restricciones técnicas para determinar la dificultad.
+
+Ejemplo: si el enunciado solo dijera que "el sistema debe permitir cambiar el logo", la justificación correcta sería:
+
+> **Importancia No especificado:** El enunciado no proporciona indicación de criticidad, impacto o valor para el negocio más allá de declarar el requisito. Faltaría información sobre cuán importante es para los stakeholders para asignar H/M/L.
+
+Ejemplo correcto (importancia y dificultad determinadas):
+
+> **Importancia H:** El enunciado establece explícitamente una disponibilidad del 99,9%, lo que indica un requisito crítico.
+>
+> **Dificultad [INFERENCIA] / Decisión de análisis H:** El enunciado describe explícitamente el logro de ese objetivo como "difícil de alcanzar"/"de alta complejidad técnica", lo que constituye evidencia explícita de complejidad. La asignación de H se apoya en esa afirmación del enunciado, no en conocimiento general sobre Availability.
+
+Ejemplo **incorrecto** (lo que NO se debe hacer):
+
+> ~~**Dificultad H:** Lograr 99,9% implica apenas ~8,76 horas de inactividad al año. Requiere arquitectura con redundancia, failover, monitoreo y recuperación automática.~~
+
+Esto es incorrecto porque introduce cálculos y decisiones técnicas no derivadas del enunciado.
+
+Ejemplo **incorrecto** (lo que NO se debe hacer):
+
+> ~~**Dificultad [INFERENCIA] / Decisión de análisis H:** Proteger transacciones de pago implica un objetivo exigente que requiere consideraciones arquitectónicas significativas.~~
+
+Esto es incorrecto porque "proteger pagos es exigente" es una inferencia basada en el conocimiento general sobre Security, no en evidencia del enunciado. Sin evidencia explícita de complejidad técnica, la dificultad debe ser **No especificado**.
+
 ## Procedimiento
 
 1. **Determinar la entrada:** atributos de calidad que vienen de un enunciado, de un análisis del Modo 1, o de escenarios verificados en el Modo 2. Si se parte del enunciado, aplicar primero las secciones 1 a 8 para separar funcionalidad de calidad e identificar atributos.
 2. **Seleccionar la raíz:** "Utility".
 3. **Segundo nivel → atributos:** listar los atributos CONFIRMADOS y los POSIBLES relevantes (sección 4). No incluir atributos sin evidencia cuando se trabaje desde un enunciado.
-4. **Tercer nivel → preocupaciones:** refinar cada atributo en **1 a 3 preocupaciones concretas** con evidencia o razonablemente derivadas del contexto (aplicar la sección 3: no inventar). Extraerlas del análisis del sistema (tiempos, cargas, fallas, cambios, integración, seguridad, etc., sección 6).
-5. **Hojas → escenarios:** por cada preocupación, construir **al menos un escenario concreto** con las seis partes (secciones 11 a 14 y 25). Cada hoja es una instancia fiel del General Scenario del atributo.
-6. **Priorizar cada hoja:** asignar `(Importancia, Dificultad)` con H / M / L y justificar brevemente cada valor. La importancia se apoya en el enunciado y el contexto de negocio; la dificultad es una decisión de análisis (ver transparencia abajo).
-7. **Presentar el árbol** con su tabla de escenarios y la justificación de prioridades.
+4. **Verificar cada atributo contra su General Scenario:** antes de confirmar un atributo, comparar el foco del requisito con la definición del atributo y las opciones de su General Scenario (secciones 15 a 24 de `references/general-scenarios.md`). Si la correspondencia no es directa, justificar explícitamente por qué el atributo elegido es el más específico (aplicar secciones 7 a 9 y 32).
+5. **Tercer nivel → preocupaciones:** refinar cada atributo en **1 a 3 preocupaciones concretas** con evidencia del enunciado. **No inventar preocupaciones** basándose en conocimiento general sobre el dominio del sistema. Si el enunciado proporciona un solo requisito por atributo, una sola preocupación es suficiente; no forzar subdivisiones.
+6. **Hojas → escenarios:** por cada preocupación, construir **al menos un escenario concreto** con las seis partes (secciones 11 a 14 y 25). Aplicar la sección 34.2: cada parte debe tener trazabilidad directa con el enunciado o con las categorías del General Scenario. Cada hoja es una instancia fiel del General Scenario del atributo.
+7. **Priorizar cada hoja:** asignar `(Importancia, Dificultad)` con H / M / L aplicando la sección 34.3. La importancia se apoya en evidencia del enunciado (si la hay; en caso contrario, **No especificado**). La dificultad es **No especificado** salvo que el enunciado proporcione evidencia explícita de complejidad técnica; en ese caso, marcarla como **[INFERENCIA] / Decisión de análisis**.
+8. **Presentar el árbol** con su tabla de escenarios y la justificación de prioridades.
 
 ## Formato de salida del Modo 3
 
@@ -1253,6 +1141,8 @@ UTILITY
         └── (H,H) Escenario: ...
 ```
 
+**Nota sobre la notación del árbol:** El ejemplo anterior ilustra la forma general `(Importancia, Dificultad)`. Cuando el enunciado no permite determinar una de las dos, se escribe **"No especificado"** en esa posición, por ejemplo `(H, No especificado)`; y cuando ambas no pueden determinarse, `(No especificado, No especificado)`. A diferencia de las hojas (que siempre tienen las seis partes del escenario), los valores de Importancia y Dificultad **no siempre tienen un valor H/M/L**: solo se escriben cuando el enunciado aporta evidencia para determinarlos (sección 34.3).
+
 ### 2. Tabla de escenarios priorizados
 
 Para cada hoja, el escenario completo en el formato de la sección 29:
@@ -1263,12 +1153,21 @@ Para cada hoja, el escenario completo en el formato de la sección 29:
 
 ### 3. Justificación de prioridades
 
-Una línea por escenario explicando por qué la Importancia y la Dificultad tienen ese valor, apoyándose en el enunciado y en criterios de análisis.
+**Dos líneas por escenario**, en este formato exacto:
+
+> **Importancia X:** justificación basada en el enunciado. Si el enunciado no permite determinarla, escribir **No especificado** y explicar qué información faltaría.
+>
+> **Dificultad Y:** escriba **No especificado** a menos que el enunciado proporcione evidencia explícita de complejidad técnica; en ese caso escriba **[INFERENCIA] / Decisión de análisis Y:** con justificación trazable al enunciado, sin detalles técnicos inventados.
+
+**Nota sobre la priorización:** La escala H/M/L proviene de la bibliografía (sección 19.4), pero los valores concretos deben derivarse del enunciado. El enunciado puede fijar la **importancia** solo si usa lenguaje de criticidad o impacto explícito (p. ej. "es crítico", "es un riesgo muy alto", "afecta directamente al negocio", "es el propósito central del sistema"). La mera palabra **"debe" NO es indicación de importancia High**: solo declara que es un requisito. Si el enunciado no expresa criticidad explícita para ese atributo, la importancia es **No especificado**. La dificultad será normalmente **No especificado**, y solo se asigna un valor cuando el enunciado describe explícitamente la complejidad del logro del objetivo.
 
 ## Reglas de fidelidad del Modo 3
 
 - **[BIBLIOGRAFÍA]** Mantener la notación *Utility → atributo → preocupación → escenario (Importancia, Dificultad)*. La raíz y los niveles se etiquetan como en el libro.
-- Aplicar las reglas de transparencia: distinguir dato del enunciado, dato de la bibliografía e inferencia; marcar **[INFERENCIA]** y conservar "No especificado" cuando corresponda.
-- **Las prioridades no son datos del enunciado:** si se asignan por criterio de análisis y no se derivan de un requisito explícito, indicarlo (por ejemplo **[INFERENCIA]** / decisión de análisis).
+- Aplicar las reglas de transparencia (sección 3): distinguir dato del enunciado, dato de la bibliografía e inferencia; marcar **[INFERENCIA]** y conservar "No especificado" cuando corresponda.
+- **Las prioridades no son datos del enunciado.** La importancia se apoya en evidencia **explícita de criticidad/impacto** del enunciado; la mera palabra "debe" no implica High. Cuando el enunciado no permite determinar la importancia, escribir **No especificado**. La dificultad es **No especificado** salvo evidencia explícita en el enunciado; nunca se infiere H/M/L a partir del conocimiento general sobre un atributo (sección 34.3).
 - **El árbol no reemplaza los escenarios individuales:** cada hoja debe poder desarrollarse como un escenario completo del Modo 1.
-- Como guía de revisión: todos los atributos en alcance deben tener rama; cada preocupación debe tener al menos un escenario; cada hoja debe tener sus dos prioridades y un escenario en forma completa.
+- **Cada atributo debe justificarse contra su General Scenario** (paso 4 del procedimiento). No asumir que la clasificación es correcta solo porque la palabra del enunciado "coincida" con el nombre del atributo.
+- **No inventar contenido de las partes del escenario:** aplicar la sección 34.2 estrictamente. Cada parte del escenario debe tener trazabilidad con el enunciado. El vocabulario del GS (fault, attack, overloaded operation, production, detect/recover, etc.) no debe convertirse en contenido concreto del escenario: va entre paréntesis como referencia bibliográfica. Lo que el enunciado no describe se marca "No especificado".
+- **No inventar detalles técnicos para justificar prioridades:** aplicar la sección 34.3 estrictamente. No agregar tecnologías, patrones, mecanismos ni decisiones de implementación que el enunciado no menciona.
+- Como guía de revisión: todos los atributos en alcance deben tener rama; cada preocupación debe tener al menos un escenario; cada hoja debe tener su escenario en forma completa y sus dos prioridades (que pueden ser **No especificado** cuando corresponda).
