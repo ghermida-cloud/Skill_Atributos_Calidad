@@ -23,6 +23,7 @@ Skill para agentes de IA que analiza sistemas a nivel de arquitectura de softwar
 ├── SKILL.md                    # Skill principal
 └── references/
     └── general-scenarios.md    # General Scenarios de los 10 atributos
+ejemplos-de-testeos.md          # Ejemplos testeados y mejoras que dispararon
 ```
 
 Los análisis generados se guardan en la raíz del repositorio como `<sistema>.md` y `<sistema>.html`.
@@ -46,3 +47,4 @@ Una única skill mantiene estas reglas en un solo lugar y permite encadenar modo
 | 3 | Generación automática de archivos `.md` y `.html` como salida (sección 29.1) |
 | 4 | Modularización: los General Scenarios se separaron a `references/general-scenarios.md` |
 | 5 | Testeo y correción de skill mediante diversos ejemplos. |
+| 6 | Documentación de los ejemplos de testeo en `ejemplos-de-testeos.md` (enunciado, errores detectados y mejoras disparadas por cada prueba). |
