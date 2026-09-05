@@ -415,6 +415,24 @@ Para cada atributo:
 7. verificar que Response Measure sea comprobable;
 8. revisar que el escenario siga siendo fiel al General Scenario.
 
+## 25.1. Tipo de evento de llegada en escenarios de Performance
+
+Cuando el atributo de calidad sea **Performance**, en la parte **Stimulus** debe indicarse cuál de los tres tipos de evento de llegada del General Scenario se ajusta mejor al escenario, en el formato:
+
+> **evento de llegada [periódico, esporádico o estocástico]** [una breve explicación]
+
+Por ejemplo:
+
+> **evento de llegada esporádico** — las búsquedas se generan de forma irregular, sin intervalo fijo, a pedido de cada usuario.
+
+Referencia rápida de la explicación:
+
+- **periódico:** el evento llega a intervalos regulares y previsibles (p. ej. lecturas de un sensor con frecuencia fija).
+- **esporádico:** el evento llega de forma irregular y poco frecuente, sin intervalo fijo.
+- **estocástico:** el evento llega de forma aleatoria, modelable por una distribución de probabilidad.
+
+Si el enunciado no permite determinar el tipo de evento de llegada, escribir **No especificado** y, cuando el contexto lo permita, agregar **[INFERENCIA] Posible valor: ...** sin reemplazar el "No especificado".
+
 ---
 
 # 26. Response Measure

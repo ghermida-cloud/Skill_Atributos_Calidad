@@ -284,3 +284,32 @@ Este testeo no disparó cambios a la skill: validó el comportamiento ya incorpo
 3. **Generación de archivos de salida (Modo 1)** — Confirmó nuevamente el flujo de la sección 29.1 (`.md` con el análisis completo y `.html` con CSS embebido y tablas renderizadas).
 
 ---
+
+## Aplicación móvil de e-commerce (Performance)
+
+**Modo utilizado:** Modo 1 (Análisis y construcción)
+
+**Archivo de salida:** `escenario-atributo-calidad-aplicacion-ecommerce.md` / `.html`
+
+**Enunciado:** Una aplicación móvil para e-commerce debe ser capaz de realizar varias búsquedas geolocalizadas de forma rápida, especialmente en períodos de promociones.
+
+### Atributos identificados
+
+| Atributo | Estado |
+|---|---|
+| Performance | Confirmado |
+
+### Ambigüedades identificadas (manejo correcto)
+
+| Ambigüedad | Cómo la resolvió la skill |
+|---|---|
+| Performance vs. Availability | Descartó Availability: el contexto de promociones describe exigencia de respuesta (demanda), no fallas ni tolerancia a fallas. |
+| Performance vs. Usability | Descartó Usability: "de forma rápida" refiere al tiempo de la búsqueda (restricción temporal), no a la facilidad de uso. |
+
+### Modificaciones que disparó
+
+**Modo mejorado:** Modo 1
+
+1. **Nueva sección 25.1 — Tipo de evento de llegada en escenarios de Performance (Modo 1).** Es la **única** modificación que este testeo disparó. Al construir el escenario de Performance, la skill indicó el tipo de evento de llegada de forma orgánica (en el ejemplo: búsquedas a pedido de cada usuario). Para formalizarlo, se agregó la sección 25.1: cuando el atributo es Performance, el Stimulus debe declarar cuál de los tres tipos de evento de llegada del GS se ajusta mejor al escenario, en el formato "evento de llegada [periódico, esporádico o estocástico] + breve explicación", con su referencia rápida y la regla de "No especificado" / [INFERENCIA] si el enunciado no permite determinarlo.
+
+---
