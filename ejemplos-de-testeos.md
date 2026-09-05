@@ -253,3 +253,34 @@ Ejemplos utilizados para validar y mejorar la skill de análisis de atributos de
 3. **No sobre-adaptar el Artifact de Availability (Modo 2 y 3, aplica a Modo 1).** La skill cambió el Artifact de "Sistema" a "el pago" porque "lo que no se pierde es el pago". Se aclaró en la sección 34.2 (regla 3): en Availability el Artifact suele ser **el sistema / la parte afectada por el fault**; "el pago" describe la **Response**, no el Artifact. Solo se personaliza si el enunciado nombra explícitamente un componente afectado.
 
 ---
+
+## Sistema de monitoreo de radares
+
+**Modo utilizado:** Modo 1 (Análisis y construcción)
+
+**Archivo de salida:** `escenario-atributo-calidad-sistema-monitoreo-radares.md` / `.html`
+
+**Enunciado:** Un sistema de monitoreo de radares debe soportar la incorporación de varios dispositivos (radares) con distinta tecnología para su monitoreo.
+
+### Atributos identificados
+
+| Atributo | Estado |
+|---|---|
+| Integrability | Confirmado |
+
+### Ambigüedades identificadas (manejo correcto)
+
+| # | Ambigüedad | Cómo la resolvió la skill |
+|---|---|---|
+| 1 | Integrability vs. Modifiability (sección 32.1) | El cambio del enunciado consiste precisamente en **incorporar/integrar** componentes (los radares). La skill mostró ambos atributos con su evidencia, justificó cada uno y eligió **Integrability** como el más específico (preocupación por integrar elementos), conservando Modifiability como lectura general válida del cambio. |
+| 2 | Integrability vs. Interoperability (sección 32.2) | Aplicó la distinción [CÁTEDRA / CLASE] desarrollo/integración vs. runtime: el foco del enunciado es la **incorporación** de los radares para su monitoreo, no el intercambio de información entre sistemas en ejecución. Descartó Interoperability con justificación explícita (el monitoreo en runtime es la funcionalidad, no la preocupación condicionada). |
+
+### Secciones validadas
+
+Este testeo no disparó cambios a la skill: validó el comportamiento ya incorporado en la skill.
+
+1. **Ambigüedad Integrability vs. Modifiability (Modo 1)** — Validó la sección 32.1: ante "incorporación de dispositivos (radares)", la skill no eligió por la palabra ni aplicó una regla automática; comparó el foco concreto del requisito con las definiciones del libro y determinó que Integrability es la preocupación más específica, sin descartar Modifiability.
+2. **Ambigüedad Integrability vs. Interoperability (Modo 1)** — Validó la sección 32.2: la skill evaluó explícitamente si los radares de distinta tecnología implicaban intercambio de información en runtime y concluyó, con la regla práctica que distingue incorporar un elemento (Integrability) de colaborar/intercambiar en ejecución (Interoperability), que la preocupación es de integración.
+3. **Generación de archivos de salida (Modo 1)** — Confirmó nuevamente el flujo de la sección 29.1 (`.md` con el análisis completo y `.html` con CSS embebido y tablas renderizadas).
+
+---
