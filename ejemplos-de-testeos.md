@@ -352,3 +352,25 @@ Este testeo no disparó cambios a la skill: validó el comportamiento ya incorpo
 1. **Estados de atributos (sección 4)** — Validó el criterio de confirmación: con un enunciado ambiguo y de baja especificidad, es correcto que predominen los POSIBLE y que solo se confirme lo que tiene exigencia inequívoca.
 2. **"No especificado" en Response Measure (secciones 3 y 26)** — La abundancia de "No especificado" en las medidas no es un defecto: el enunciado no fija valores y la skill los conservó sin inventar métricas, manteniendo el estado del atributo coherente con la evidencia.
 3. **Manejo de ambigüedades (secciones 7 a 9, 28 y 32)** — Las tres ambigüedades se resolvieron mostrando ambas alternativas y construyendo escenarios para cada una.
+
+---
+
+## Sistema de automatización de un edificio (BAMS)
+
+**Modo utilizado:** Modo 3 (Árbol de utilidad)
+
+**Archivo de salida:** `arbol-utilidad-bams.md` / `arbol-utilidad-bams.html`
+
+**Enunciado:** Sistema de automatización de un edificio (BAMS). (1) Reportar cualquier alarma crítica (ej. incendio) aún con problemas de conectividad, sin degradar el tiempo de respuesta desde que sucede el evento hasta que se reporta (por ej., 2 segundos). (2) Dar soporte para integrar dispositivos de un abanico de fabricantes (Siemens, Honeywell, etc.) y permitir que interactúen entre sí y con el resto del sistema. (3) Verificar que un usuario tenga permisos para operar y modificar parámetros de ciertos dispositivos (ej. nivel de calefacción de una habitación) mediante usuario y contraseña.
+
+### Comportamiento correcto detectado
+
+1. **Atributos identificados correctamente (Modo 3).** Req 1(b) generó dos atributos (Availability por el reporte ante problemas de conectividad, y Performance por el límite de 2 segundos); Req 2(c) → Integrability (foco en integrar elementos); Req 3(a) → Security (proteger el acceso a parámetros de dispositivos). Las ambigüedades Safety vs. Performance (Req 1) e Integrability vs. Modifiability (Req 2) se resolvieron eligiendo el atributo más específico con justificación.
+2. **Escenarios con las seis partes y convensión de paréntesis correctas (Modo 3).** Cada hoja se construyó fiel al General Scenario de su atributo, con datos concretos del enunciado fuera del paréntesis y la opción/valor bibliográfico dentro.
+3. **Dificultad "No especificado" en todos los casos (Modo 3).** El enunciado no describe complejidad técnica, por lo que ninguna dificultad se asignó a H/M/L.
+
+### Mejora que disparó
+
+**Modo mejorado:** Modo 3
+
+1. **"La métrica técnica NO define la importancia" (Modo 3).** Al priorizar, la skill puso **Importancia H** en Performance argumentando que el enunciado fijaba un límite de "2 segundos", y lo mismo en Availability por el contexto de conectividad. Es incorrecto: un tiempo/meta numérica solo completa el *Response Measure* del escenario; no expresa criticidad para el negocio. Sin indicación explícita de criticidad ("es crítico", "riesgo muy alto", "afecta directamente al negocio"), la importancia debe ser **No especificado**. Se agregó a la sección 34.3 un punto explícito: *"la presencia de una métrica técnica o cuantitativa NO define la importancia"*, y se reforzó la nota de priorización señalando que la métrica completa el Response Measure, no la prioridad.
