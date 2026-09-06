@@ -428,8 +428,8 @@ Por ejemplo:
 Referencia rápida de la explicación:
 
 - **periódico:** el evento llega a intervalos regulares y previsibles (p. ej. lecturas de un sensor con frecuencia fija).
-- **esporádico:** el evento llega de forma irregular y poco frecuente, sin intervalo fijo.
-- **estocástico:** el evento llega de forma aleatoria, modelable por una distribución de probabilidad.
+- **esporádico:** el evento llega de forma irregular y poco frecuente, sin intervalo fijo (p. ej. alertas de falla).
+- **estocástico:** el evento llega de forma aleatoria, modelable por una distribución de probabilidad (p. ej. solicitudes de usuarios, trafico web)
 
 Si el enunciado no permite determinar el tipo de evento de llegada, escribir **No especificado** y, cuando el contexto lo permita, agregar **[INFERENCIA] Posible valor: ...** sin reemplazar el "No especificado".
 

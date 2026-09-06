@@ -313,3 +313,42 @@ Este testeo no disparó cambios a la skill: validó el comportamiento ya incorpo
 1. **Nueva sección 25.1 — Tipo de evento de llegada en escenarios de Performance (Modo 1).** Es la **única** modificación que este testeo disparó. Al construir el escenario de Performance, la skill indicó el tipo de evento de llegada de forma orgánica (en el ejemplo: búsquedas a pedido de cada usuario). Para formalizarlo, se agregó la sección 25.1: cuando el atributo es Performance, el Stimulus debe declarar cuál de los tres tipos de evento de llegada del GS se ajusta mejor al escenario, en el formato "evento de llegada [periódico, esporádico o estocástico] + breve explicación", con su referencia rápida y la regla de "No especificado" / [INFERENCIA] si el enunciado no permite determinarlo.
 
 ---
+
+## Alquiler de monopatines eléctricos
+
+**Modo utilizado:** Modo 1 (Análisis y construcción)
+
+**Archivo de salida:** `escenarios-atributos-calidad-monopatines.md` / `.html`
+
+**Enunciado:** Empresa que lanza un negocio de alquiler de monopatines eléctricos en paradas de una ciudad capital. Requiere una app móvil para los usuarios y una app web para la gestión (mantenimiento y administración). Los monopatines se buscan y se dejan en paradas predefinidas; se activan por código QR y el viaje queda asociado a una cuenta vinculada a Mercado Pago, descontando crédito por tiempo de uso. La app no debe permitir finalizar un viaje salvo que el GPS del monopatín confirme que se encuentra en una parada permitida. Los monopatines cuentan con GPS para determinar su ubicación "en todo momento" y la app muestra un mapa interactivo con los monopatines cercanos. El Administrador gestiona monopatines, paradas y precios; el Encargado de Mantenimiento registra acciones de mantenimiento y se generan reportes de uso (kilómetros, tiempo con y sin pausas).
+
+### Atributos identificados
+
+| Atributo | Estado |
+|---|---|
+| Safety | Confirmado |
+| Performance | Posible |
+| Availability | Posible |
+| Security | Posible |
+| Usability | Posible |
+| Integrability | Posible |
+| Interoperability | Posible (alternativa a Integrability) |
+
+### Comportamiento correcto detectado
+
+1. **Detección correcta de atributos con justificación del porqué.** Identificó todos los atributos relevantes del enunciado (Safety, Performance, Availability, Security, Usability, Integrability) y justificó la presencia de cada uno con evidencia textual, correspondencia bibliográfica y trazabilidad con su General Scenario. No incluyó atributos sin evidencia (Deployability, Energy Efficiency, Testability) ni clasificó por palabras aisladas. Este comportamiento valida las secciones 4 a 9 y la regla de fidelidad al GS.
+2. **Manejo correcto de las ambigüedades (secciones 7, 28 y 32).** GPS/fin de viaje (Safety vs. regla de negocio funcional), mapa/ubicación (Performance vs. Availability) y Mercado Pago (Integrability vs. Interoperability) se analizaron con la tabla comparativa, se mantuvieron las alternativas defendibles y se construyeron escenarios para cada una.
+
+### Justificación del comportamiento (muchos POSIBLE y un solo CONFIRMADO)
+
+1. **El enunciado es ambiguo y de baja especificidad.** La mayoría de los fragmentos expresa pistas razonables pero sin exigencias explícitas. Ante esa falta de especificidad, la skill aplicó correctamente la sección 4: no hay evidencia suficiente para afirmar una exigencia plena del atributo, por lo que corresponde POSIBLE y no CONFIRMADO. Confirmar Performance, Availability, Security, Usability o Integrability habría sido sobreinterpretar el enunciado.
+2. **Los POSIBLE son pistas razonables, no atributos descartados.** En cada caso la skill marcó la evidencia, explicó por qué podría corresponder y qué faltaría para confirmarlo, sin confirmarlos ni eliminarlos por falta de datos. Es el comportamiento esperado de la sección 4 cuando el enunciado no decide.
+3. **Ambigüedades correctamente mantenidas.** Como el enunciado es ambiguo (GPS → Safety/regla de negocio; mapa → Performance/Availability; Mercado Pago → Integrability/Interoperability), la skill conservó ambas lecturas y construyó ambos escenarios (secciones 7, 8, 28 y 32), en lugar de forzar una única clasificación.
+
+### Secciones validadas
+
+Este testeo no disparó cambios a la skill: validó el comportamiento ya incorporado.
+
+1. **Estados de atributos (sección 4)** — Validó el criterio de confirmación: con un enunciado ambiguo y de baja especificidad, es correcto que predominen los POSIBLE y que solo se confirme lo que tiene exigencia inequívoca.
+2. **"No especificado" en Response Measure (secciones 3 y 26)** — La abundancia de "No especificado" en las medidas no es un defecto: el enunciado no fija valores y la skill los conservó sin inventar métricas, manteniendo el estado del atributo coherente con la evidencia.
+3. **Manejo de ambigüedades (secciones 7 a 9, 28 y 32)** — Las tres ambigüedades se resolvieron mostrando ambas alternativas y construyendo escenarios para cada una.
